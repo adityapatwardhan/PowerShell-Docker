@@ -1,10 +1,10 @@
 # Copyright (c) Microsoft Corporation.
 # Licensed under the MIT License.
 
-# Docker image file that describes Fedora 32 image with PowerShell installed from Microsoft YUM Repo
+# Docker image file that describes Fedora 34 image with PowerShell installed from Microsoft YUM Repo
 ARG imageRepo=fedora
 
-FROM ${imageRepo}:32 AS installer-env
+FROM ${imageRepo}:34 AS installer-env
 
 ARG PS_VERSION=7.0.0
 ARG PACKAGE_VERSION=7.0.0
@@ -18,7 +18,7 @@ ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false \
     LANG=en_US.UTF-8 \
     # set a fixed location for the Module analysis cache
     PSModuleAnalysisCachePath=/var/cache/microsoft/powershell/PSModuleAnalysisCache/ModuleAnalysisCache \
-    POWERSHELL_DISTRIBUTION_CHANNEL=PSDocker-Fedora-32
+    POWERSHELL_DISTRIBUTION_CHANNEL=PSDocker-Fedora-34
 
 # Install dependencies and clean up
 RUN curl -sSL ${PS_PACKAGE_URL} -o /tmp/powershell.rpm \
